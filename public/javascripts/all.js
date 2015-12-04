@@ -1,4 +1,5 @@
 var app=angular.module("flapperNews",["ui.router","ngMaterial"]);
+
 app.config(["$stateProvider",
 	"$urlRouterProvider",
 	function(t,e){
@@ -31,6 +32,7 @@ app.config(["$stateProvider",
 		}),
 		e.otherwise("home")
 	}]),
+
 app.controller("AppCtrl",[
 	"$scope",
 	"$mdSidenav",
@@ -38,6 +40,7 @@ app.controller("AppCtrl",[
 		t.toggleSidenav=function(t){e(t).toggle()}
 	}
 ]),
+
 app.controller("AuthCtrl",[
 	"$scope",
 	"$state",
@@ -52,6 +55,7 @@ app.controller("AuthCtrl",[
 		}
 	}
 ]),
+
 app.controller("MainCtrl",[
 	"$scope",
 	"posts",
@@ -63,6 +67,7 @@ app.controller("MainCtrl",[
 		t.decrementUpvotes=function(t){e.downvote(t)}
 	}
 ]),
+
 app.controller("NavCtrl",[
 	"$scope",
 	"auth",
@@ -72,6 +77,7 @@ app.controller("NavCtrl",[
 		t.logOut=e.logOut
 	}
 ]),
+
 app.controller("PostsCtrl",[
 	"$scope",
 	"posts",
@@ -93,6 +99,7 @@ app.controller("SliderCtrl",[
 		]
 	}
 ]),
+
 app.directive("slider",[
 	"$timeout",
 	function(t){
@@ -124,6 +131,7 @@ app.directive("slider",[
 		}
 	}
 ]),
+
 app.factory("auth",[
 	"$http",
 	"$window",
@@ -161,6 +169,7 @@ app.factory("auth",[
 		},n
 	}
 ]),
+
 app.factory("posts",[
 	"$http",
 	"auth",

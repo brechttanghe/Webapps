@@ -47,7 +47,11 @@ function($stateProvider, $urlRouterProvider) {
 			}
 		}]
 
-	});
+	}).state('images', {
+    	url: '/images',
+       	templateUrl: '/templates/slider.html',
+       	controller: 'SliderCtrl'
+    });
 
 	$urlRouterProvider.otherwise('home');
 }]);

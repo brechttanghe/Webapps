@@ -139,13 +139,12 @@ router.post('/login', function(req, res, next){
     return res.status(400).json({message: 'Please fill out all fields'});
   }
 
-console.log('calling passport)');
   passport.authenticate('local', function(err, user, info){
     if(err){ return next(err); }
 
     if(user){
       return res.json({token: user.generateJWT()});
-    } else {
+    }else {
       return res.status(401).json(info);
     }
   })(req, res, next);

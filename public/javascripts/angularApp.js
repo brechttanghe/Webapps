@@ -5,7 +5,7 @@ function($stateProvider, $urlRouterProvider) {
 
 	$stateProvider.state('home', {
 		url : '/home',
-		templateUrl : '/home.html',
+		templateUrl : '/templates/home.html',
 		controller : 'MainCtrl',
 		resolve : {
 			postPromise : ['posts',
@@ -16,7 +16,7 @@ function($stateProvider, $urlRouterProvider) {
 		}
 	}).state('posts', {
 		url : '/posts/:id',
-		templateUrl : '/posts.html',
+		templateUrl : '/templates/posts.html',
 		controller : 'PostsCtrl',
 		resolve : {
 			post : ['$stateParams', 'posts',
@@ -27,7 +27,7 @@ function($stateProvider, $urlRouterProvider) {
 		}
 	}).state('login', {
 		url : '/login',
-		templateUrl : '/login.html',
+		templateUrl : '/templates/login.html',
 		controller : 'AuthCtrl',
 		onEnter : ['$state', 'auth',
 		function($state, auth) {
@@ -38,7 +38,7 @@ function($stateProvider, $urlRouterProvider) {
 
 	}).state('register', {
 		url : '/register',
-		templateUrl : '/register.html',
+		templateUrl : '/templates/register.html',
 		controller : 'AuthCtrl',
 		onEnter : ['$state', 'auth',
 		function($state, auth) {
@@ -267,10 +267,5 @@ function($scope, auth) {
 	$scope.logOut = auth.logOut;
 }]);
 
-app.controller('AppCtrl', ['$scope', '$mdSidenav', function($scope, $mdSidenav){
-  $scope.toggleSidenav = function(menuId) {
-    $mdSidenav(menuId).toggle();
-  };
- 
-}]);
+
 
